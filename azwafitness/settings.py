@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@kdu$p%%g-r77%(f2u4+x8y+i-@l153ljkqm5@5z+*)=nco%wb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app','.now.sh']
 
 
 # Application definition
@@ -119,11 +119,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-import os
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
-]
+
+
 
 MEDIA_URL = '/media/'
 
@@ -136,3 +133,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MESSAGE_TAGS={
     messages.ERROR:'danger'
 }
+
+
+STATIC_URL = 'static/'
+
+import os
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
